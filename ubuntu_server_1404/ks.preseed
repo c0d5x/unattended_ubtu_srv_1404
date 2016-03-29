@@ -8,3 +8,6 @@ d-i partman/confirm_nooverwrite boolean true
 d-i base-installer/install-recommends boolean false
 d-i pkgsel/update-policy select none
 popularity-contest popularity-contest/participate boolean false
+d-i preseed/late_command string \
+    echo 'ubuntu ALL=(ALL) NOPASSWD: ALL' > /target/etc/sudoers.d/ubuntu ; \
+    in-target chmod 440 /etc/sudoers.d/ubuntu ;
